@@ -13,11 +13,11 @@ class App extends Component {
       value: '',
       message: ''
     }
+
+    this.onEnterSubmit = this.onEnterSubmit.bind(this)
   }
 
   async componentDidMount () {
-    this.onEnterSubmit = this.onEnterSubmit.bind(this)
-
     const manager = await lottery.methods.manager().call()
     const players = await lottery.methods.getPlayers().call()
     const balance = await web3.eth.getBalance(lottery.options.address)
